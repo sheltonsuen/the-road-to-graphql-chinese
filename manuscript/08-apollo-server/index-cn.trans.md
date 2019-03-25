@@ -125,11 +125,11 @@ That's the data migration of your database to get started with GraphQL authentic
 
 ### Registration (Sign Up) with GraphQL
 
-### 用 GraphQL 注册
+### 用 GraphQL 实现注册
 
-Now, let's examine the details for GraphQL authentication. You will implement two GraphQL mutations: one to register a user, and one to log in to the application. Let's start with the sign up mutation in the _src/schema/user.js_ file:
+>Now, let's examine the details for GraphQL authentication. You will implement two GraphQL mutations: one to register a user, and one to log in to the application. Let's start with the sign up mutation in the _src/schema/user.js_ file:
 
-现在，来考察 GraphQL 认证的具体细节。你将会实现两个 GraphQL mutations：一个时注册用户，另一个是登录到应用。让我们从注册 mutation 文件`_src/schema/user.js`开始：
+现在，让我们来考察 GraphQL 认证的具体细节。你将会实现两个 GraphQL 变更（操作）：一个用于注册用户，另一个用于登录到应用程序。让我们从_src/schema/user.js_ 文件中的注册开始：
 
 {title="src/schema/user.js",lang="javascript"}
 
