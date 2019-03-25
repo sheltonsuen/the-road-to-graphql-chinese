@@ -8,7 +8,7 @@
 
 >In preparation for the authentication mechanism with GraphQL, extend the user model in the _src/models/user.js_ file. The user needs an email address (as unique identifier) and a password. Both email address and username (another unique identifier) can be used to sign in to the application, which is why both properties were used for the user's `findByLogin()` method.
 
-在准备用 GraphQL 实现认证机制时，在_src/models/user.js_文件中扩展用户模型。用户需要一个电子邮箱地址（作为唯一标识符）和一个密码。电子邮箱地址和用户名（另一种唯一标识符）都可以被用于登录到应用，这就是为什么这两个属性都被用于用户的`findByLogin()`方法。
+在准备用 GraphQL 实现认证机制时，在_src/models/user.js_文件中扩展用户模型。用户需要一个电子邮件地址（作为唯一标识符）和一个密码。电子邮件地址和用户名（另一种唯一标识符）都可以被用于登录到应用，这就是为什么这两个属性都被用于用户的`findByLogin()`方法。
 
 {title="src/models/user.js",lang="javascript"}
 
@@ -54,13 +54,13 @@ const user = (sequelize, DataTypes) => {
 export default user;
 ```
 
-The two new entries for the user model have their own validation rules, same as before. The password of a user should be between 7 and 42 characters, and the email should have a valid email format. If any of these validations fails during user creation, it generates a JavaScript error, transforms and transfers the error with GraphQL. The registration form in the client application could display the validation error then.
+>The two new entries for the user model have their own validation rules, same as before. The password of a user should be between 7 and 42 characters, and the email should have a valid email format. If any of these validations fails during user creation, it generates a JavaScript error, transforms and transfers the error with GraphQL. The registration form in the client application could display the validation error then.
 
-这两个用户模型新实体拥有他们自己的验证规则，跟以前一样。用户密码应该是 7 到 42 位的字符，邮箱应该是合法的邮箱格式。如果在创建用户的过程中，任何一个验证失败了，应用会生成一个 JavaScript 错误，变换并转换成 GraphQL。然后，在客户端注册表单应该可以看到验证错误。
+同以前一样，用户模型的两个新字段拥有自己的验证规则。用户密码应该是 7 到 42 位的字符串，并且电子邮件应该具有合法的电子邮件格式。如果在用户创建期间任何一个验证失败了，则会生成一个 JavaScript 错误，并用GraphQL转换和传输错误。在客户端应用程序中的注册表单可能会显示验证错误。
 
-You may want to add the email, but not the password, to your GraphQL user schema in the _src/schema/user.js_ file too:
+>You may want to add the email, but not the password, to your GraphQL user schema in the _src/schema/user.js_ file too:
 
-你也可能想添加邮件，但是不包括密码到 GraphQL 的用户模式文件`src/schema/user.js`:
+你也可能想添加电子邮件而不是密码到文件_src/schema/user.js_中的 GraphQL 用户模型:
 
 {title="src/schema/user.js",lang="javascript"}
 
@@ -83,7 +83,7 @@ export default gql`
 
 Next, add the new properties to your seed data in the _src/index.js_ file:
 
-然后，添加新的属性到你的种子数据文件`src/index.js`
+然后，添加新的属性到文件`src/index.js`中的种子数据：
 
 {title="src/index.js",lang="javascript"}
 
@@ -121,7 +121,7 @@ const createUsersWithMessages = async () => {
 
 That's the data migration of your database to get started with GraphQL authentication.
 
-那就是数据库数据迁移去开始 GraphQL 认证
+这就是数据库的数据迁移以便开始 GraphQL 认证
 
 ### Registration (Sign Up) with GraphQL
 
