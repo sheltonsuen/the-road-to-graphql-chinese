@@ -1,14 +1,14 @@
 > ## Apollo Server: Authentication
 
-阿波罗服务器： 认证
+## Apollo Server: 认证
 
 > Authentication in GraphQL is a popular topic. There is no opinionated way of doing it, but many people need it for their applications. GraphQL itself isn't opinionated about authentication since it is only a query language. If you want authentication in GraphQL, consider using GraphQL mutations. In this section, we use a minimalistic approach to add authentication to your GraphQL server. Afterward, it should be possible to register (sign up) and login (sign in) a user to your application. The previously used `me` user will be the authenticated user.
 
-在 GraphQL 中认证是一个很受欢迎的话题。做认证这件事情没后什么争议的，大多数人的 applications 都需要认证。GraphQL 本身对认证并没有己见，因为它就是一种查询语言。如果你想要在 GraphQL 中做认证，考虑用 GraphQL mutations。在这一节，我们用最简化的方法去给你的 GraphQL 服务器添加认证。然后，你应该可以通过服务器注册和登录一个用户到你的应用。之前用过的`me`用户将会做为一个认证的用户。
+在 GraphQL 中认证是一个很热门的话题。没有固定的方法去做认证，但大多数人的应用都需要认证。GraphQL 本身并没有固定的认证机制，因为它只是一种查询语言。如果你想要在 GraphQL 中实现认证，考虑用 GraphQL 变更（操作）。在这一部分中，我们用最简化的方法去给你的 GraphQL 服务器添加认证。之后，应该可以通过服务器注册和登录一个用户到你的应用。之前用过的`me`用户将会做为一个认证过的用户。
 
-In preparation for the authentication mechanism with GraphQL, extend the user model in the _src/models/user.js_ file. The user needs an email address (as unique identifier) and a password. Both email address and username (another unique identifier) can be used to sign in to the application, which is why both properties were used for the user's `findByLogin()` method.
+>In preparation for the authentication mechanism with GraphQL, extend the user model in the _src/models/user.js_ file. The user needs an email address (as unique identifier) and a password. Both email address and username (another unique identifier) can be used to sign in to the application, which is why both properties were used for the user's `findByLogin()` method.
 
-在准备用 GraphQL 实现认证机制中，在文件`src/models/user.js`中继承用户模型。这个用户需要一个邮箱地址（唯一标识符）和一个密码。邮箱地址和用户名（另一种标识符）都可以被用来登录到应用，这就是为什么这两个属性都被这个用户的`findByLogin()`方法调用。
+在准备用 GraphQL 实现认证机制时，在_src/models/user.js_文件中扩展用户模型。用户需要一个电子邮箱地址（作为唯一标识符）和一个密码。电子邮箱地址和用户名（另一种唯一标识符）都可以被用于登录到应用，这就是为什么这两个属性都被用于用户的`findByLogin()`方法。
 
 {title="src/models/user.js",lang="javascript"}
 
