@@ -60,7 +60,7 @@ export default user;
 
 >You may want to add the email, but not the password, to your GraphQL user schema in the _src/schema/user.js_ file too:
 
-你也可能想添加电子邮件而不是密码到文件_src/schema/user.js_中的 GraphQL 用户模型:
+你也可能想添加电子邮件而不是密码到文件_src/schema/user.js_中的 GraphQL 用户模式:
 
 {title="src/schema/user.js",lang="javascript"}
 
@@ -129,7 +129,7 @@ That's the data migration of your database to get started with GraphQL authentic
 
 >Now, let's examine the details for GraphQL authentication. You will implement two GraphQL mutations: one to register a user, and one to log in to the application. Let's start with the sign up mutation in the _src/schema/user.js_ file:
 
-现在，让我们来考察 GraphQL 认证的具体细节。你将会实现两个 GraphQL 变更（操作）：一个用于注册用户，另一个用于登录到应用程序。让我们从_src/schema/user.js_ 文件中的注册开始：
+现在，让我们来考察 GraphQL 认证的具体细节。你将会实现两个 GraphQL 变更（操作）：一个用于注册用户，另一个用于登录到应用程序。让我们从_src/schema/user.js_ 文件中的注册变更（操作）开始：
 
 {title="src/schema/user.js",lang="javascript"}
 
@@ -167,17 +167,17 @@ export default gql`
 `;
 ```
 
-The `signUp` mutation takes three non-nullable arguments: username, email, and password. These are used to create a user in the database. The user should be able to take the username or email address combined with the password to enable a successful login.
+> The `signUp` mutation takes three non-nullable arguments: username, email, and password. These are used to create a user in the database. The user should be able to take the username or email address combined with the password to enable a successful login.
 
-这个`signUP` mutation 需要 3 个不为空的参数：用户名，邮箱和密码。这些参数是用来在数据库中创建用户。这个用户应该被允许用用户名或者邮箱组合密码成功登录。
+`signUP` 变更（操作）接受三个不为空的参数：用户名，电子邮件和密码。这些参数是用于在数据库中创建用户。用户应该能够使用用户名或者电子邮件组合密码来成功登录。
 
-Now we'll consider the return type of the `signUp` mutation. Since we are going to use a token-based authentication with GraphQL, it is sufficient to return a token that is nothing more than a string. However, to distinguish the token in the GraphQL schema, it has its own GraphQL type. You will learn more about tokens in the following, because the token is all about the authentication mechanism for this application.
+> Now we'll consider the return type of the `signUp` mutation. Since we are going to use a token-based authentication with GraphQL, it is sufficient to return a token that is nothing more than a string. However, to distinguish the token in the GraphQL schema, it has its own GraphQL type. You will learn more about tokens in the following, because the token is all about the authentication mechanism for this application.
 
-现在我们将会考虑`signUp` mutation 的返回值类型。因为我们准备用基于 GraphQL 的 token-based 认证。只返回一个 token 是非常高效的，没有什么比返回一个字符串更高效的了。然而，为了在 GraphQL schema 中区分 token，它将用后自己的 GraphQL 类型。你讲会在接下来学习到更多关于 token 的，因为这个应用所有关于认证的机制都是 token。
+现在我们将会考虑`signUp`变更（操作）的返回值类型。由于我们准备使用 GraphQL 基于 token 的认证，因此仅仅返回一个字符串 token 就足够了。然而，为了在 GraphQL 模式中区分 token，它具有自己的 GraphQL 类型。你将会在接下来了学习到更多关于 token 的知识，因为这个应用所有关于认证机制的都跟 token 有关。
 
-First, add the counterpart for your new mutation in the GraphQL schema as a resolver function. In your _src/resolvers/user.js_ file, add the following resolver function that creates a user in the database and returns an object with the token value as string.
+> First, add the counterpart for your new mutation in the GraphQL schema as a resolver function. In your _src/resolvers/user.js_ file, add the following resolver function that creates a user in the database and returns an object with the token value as string.
 
-首先，复制一份新的 mutation 在 GraphQL schema 做为一个 resolver function。在你的`_src/resolvers/user.js` 文件中，添加如下 resolver function 用于在数据库中创建一个用户并且返回一个对象包含对应的字符串 token。
+首先，在 GraphQL 模式中添加一份新的变更（操作）做为一个解析函数。在你的_src/resolvers/user.js_ 文件中，添加以下解析函数用于在数据库中创建一个用户并且返回一个对象包含对应的字符串 token。
 
 {title="src/resolvers/user.js",lang="javascript"}
 
@@ -215,9 +215,9 @@ export default {
 };
 ```
 
-That's the GraphQL framework around a token-based registration. You created a GraphQL mutation and resolver for it, which creates a user in the database based on certain validations and its incoming resolver arguments. It creates a token for the registered user. For now, the set up is sufficient to create a new user with a GraphQL mutation.
+> That's the GraphQL framework around a token-based registration. You created a GraphQL mutation and resolver for it, which creates a user in the database based on certain validations and its incoming resolver arguments. It creates a token for the registered user. For now, the set up is sufficient to create a new user with a GraphQL mutation.
 
-那就是 GraphQL 框架关于如何创建一个 token-based 的注册。你为注册创建一个 GraphQL mutation 和 一个 resolver，在数据库创建一个用户基于某些验证和它即将到来的 resolver 参数。它将会为注册的用户创建一个 token。目前，这个 set up 例子是非常高效的去创建一个用户用 GraphQL mutation。
+这就是 GraphQL 框架关于创建一个基于 token 的注册。你为注册创建一个 GraphQL 变更（操作）和 一个解析器，它基于某些验证和它即将到来的解析器参数在数据库中创建用户。它为注册的用户创建一个 token。目前，设置足以创建具有GraphQL 变更（操作）的新用户。
 
 ### Securing Passwords with Bcrypt
 
